@@ -17,7 +17,7 @@
 *.userprefs
 
 # Mono auto generated files
-mono_crash.*
+0ew mono_crash.*
 
 # Build results
 [Dd]ebug/
