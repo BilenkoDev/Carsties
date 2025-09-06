@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AuctionService.Entities;
 
 [Table("Items")]
+
+//Item - Car
 public class Item
 {
   public Guid Id { get; set; }
@@ -14,8 +16,8 @@ public class Item
   public int Mileage { get; set; }
   public string ImageUrl { get; set; }
 
-  // nav properties
-  public Auction Auction { get; set; }
+  // nav properties, ef will make a schema
+  public Auction Auction { get; set; } // related entity
   public Guid AuctionId { get; set; }
 
 }

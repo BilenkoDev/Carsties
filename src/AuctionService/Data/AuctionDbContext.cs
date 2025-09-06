@@ -10,6 +10,7 @@ public class AuctionDbContext : DbContext
   {
   }
   public DbSet<Auction> Auctions { get; set; }
+  // EF will create a Items DbSet, as Item is related to Auction
 
 }
 

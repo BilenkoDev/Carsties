@@ -74,6 +74,8 @@ namespace AuctionService.Controllers
 
             if (auction == null) return NotFound();
             // TODO: check seller == username
+
+            //Updating car property
             auction.Item.Make = updateAuctionDto.Make ?? auction.Item.Make;
             auction.Item.Model = updateAuctionDto.Model ?? auction.Item.Model;
             auction.Item.Color = updateAuctionDto.Color ?? auction.Item.Color;
