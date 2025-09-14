@@ -39,6 +39,7 @@ namespace AuctionService.Controllers
             // .ToListAsync();
             // return _mapper.Map<List<AuctionDto>>(auctions);
 
+            // ProjectTo is from Automapper
             return await query.ProjectTo<AuctionDto>(_mapper.ConfigurationProvider).ToListAsync();
         }
 

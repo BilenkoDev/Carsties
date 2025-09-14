@@ -12,8 +12,9 @@ public class SearchController : ControllerBase
 {
 
   [HttpGet]
-  public async Task<ActionResult<List<Item>>> SearchItems([FromQuery] SearchParams searchParams,
-  int pageNumber = 1, int pageSize = 4)
+  public async Task<ActionResult<List<Item>>> SearchItems([FromQuery] SearchParams searchParams
+  //string serchTerm, int pageNumber = 1, int pageSize = 4
+  )
   {
     //var query = DB.Find<Item>();
     var query = DB.PagedSearch<Item, Item>();
@@ -56,6 +57,7 @@ public class SearchController : ControllerBase
 
     query.PageNumber(searchParams.PageNumber);
     query.PageSize(searchParams.PageSize);
+    
     var result = await query.ExecuteAsync();
 
     return Ok(new

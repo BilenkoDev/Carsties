@@ -12,6 +12,7 @@ public class DbInitializer
   public static async Task InitDb(WebApplication app)
   {
 
+    //DB - from Mongo DB
     await DB.InitAsync("SearchDb", MongoClientSettings
         .FromConnectionString(app.Configuration.GetConnectionString("MongoDbConnection"))
     );
@@ -23,6 +24,9 @@ public class DbInitializer
     .CreateAsync();
 
     var count = await DB.CountAsync<Item>();
+
+    //from file Data/auctions.json
+
     // if (count == 0)
     // {
     //   Console.WriteLine("No data - will attempt to seed");
@@ -34,9 +38,7 @@ public class DbInitializer
     // }
 
     using var scope = app.Services.CreateScope();
-
     var httpClient = scope.ServiceProvider.GetRequiredService<AuctionSvcHttpClient>();
-
     var items = await httpClient.GetItemsForSearchDb();
 
     Console.WriteLine($"Items count: {items.Count}");
